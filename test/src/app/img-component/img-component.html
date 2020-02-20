@@ -1,0 +1,19 @@
+<div class="img-container">
+    <img
+        [ngClass]="isLoading? 'content hide': 'content'"
+        class="content"
+        height="300"
+        width="300"
+        mat-card-image
+        loading="lazy"
+        (load)="onImageLoad()"
+        (error)="onImageError()"
+        [src]="url"
+        alt="Mission patch of  {{mission}}"
+    />
+    <div 
+    [ngClass]="!isLoading? 'content hide': 'content'"
+    >
+        <mat-spinner  ></mat-spinner>
+    </div>
+</div>

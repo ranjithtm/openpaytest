@@ -1,0 +1,76 @@
+<div *ngIf="launchDetailsLoading | async as launchDetailsLoading; else template" >    
+  <mat-spinner>
+  </mat-spinner>
+</div>
+<ng-template #template>
+  <div class="details-container">
+    <ng-container *ngIf="launchDetails | async as launchDetails">
+      <div (click)="onBackClick()" class="title">&#9668; {{ launchDetails.mission_name }} </div>
+      <div class="mission-details-container">
+        <div class="mission-details">
+          <section style="padding-top: 20px;">
+            <mat-card style="width: 400px; margin: auto;">
+              <mat-card-header>
+                <mat-card-title>{{ launchDetails.mission_name }}</mat-card-title>
+              </mat-card-header>
+              <div class="mission-details-img-container">
+                <img
+                  [src]="launchDetails.links.mission_patch"
+                  alt="Mission patch of {{ launchDetails.mission_name }}"
+                  height="100"
+                  width="100"
+                />
+              </div>
+              <mat-card-content>
+                <p>{{ launchDetails.details }}</p>
+              </mat-card-content>
+            </mat-card>
+          </section>
+        </div>
+        <div class="mission-gallery">
+          <div class="selected-img-container">
+            <img
+              [src]="selectedUrl"
+              alt="Picture of {{ launchDetails.mission_name }}"
+              height="300"
+              width="300"
+              loading="lazy"
+            />
+          </div>
+          <div class="carousel-container">
+            <div
+            *ngIf="launchDetails.links"
+            class="carousel">
+              <div
+                class="carousel-item"
+                *ngFor="let pic of launchDetails.links.flickr_images"
+              >
+                <img
+                  (click)="onImageClick(pic)"
+                  [src]="pic"
+                  alt="Picture of {{ launchDetails.mission_name }}"
+                  height="100"
+                  width="100"
+                  loading="lazy"
+                />
+              </div>
+              <div
+                class="carousel-item"
+                *ngFor="let pic of launchDetails.links.flickr_images"
+              >
+                <img
+                  (click)="onImageClick(pic)"
+                  [src]="pic"
+                  alt="Picture of {{ launchDetails.mission_name }}"
+                  height="100"
+                  width="100"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</ng-template>

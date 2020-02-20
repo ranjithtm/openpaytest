@@ -1,0 +1,61 @@
+.details-container {
+  height: 100%;
+  padding: 80px 80px 0px 80px;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 32px;
+  cursor: pointer;
+}
+
+.mission-details-container {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+}
+
+.mission-details-img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 256px;
+}
+
+.mission-details-container > img.mat-card-image {
+  width: 100px !important;
+}
+
+.mission-gallery {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding-top: 30px;
+}
+
+.selected-img-container {
+  display: flex;
+  justify-content: center;
+}
+
+.carousel-container {
+  margin: 20px;
+  flex: 1;
+  overflow: scroll;
+  position: relative;
+}
+
+.carousel {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 100px;
+  justify-content: center;
+}
+.carousel > .carousel-item {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+}
